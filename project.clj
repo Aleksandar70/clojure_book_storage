@@ -9,5 +9,5 @@
                  [compojure "1.6.1"]
                  [incanter "1.5.6"]
                  [com.cemerick/friend "0.2.3"]]
-  :repl-options {:init-ns book-storage.core}
-  :main book_storage.core)
+  :repl-options {:init-ns core}
+  :main database.init)
