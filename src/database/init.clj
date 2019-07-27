@@ -1,16 +1,16 @@
 (ns database.init
   (:require [incanter.core :as core]
-        [incanter.io :as io]
-        [somnium.congomongo :as cm]
-        [database.books_repo :only [insert-book get-books]]
-        (cemerick.friend [workflows :as workflows]
-          [credentials :as creds])))
+            [incanter.io :as io]
+            [somnium.congomongo :as cm]
+            [database.books_repo :only [insert-book get-books]]
+            (cemerick.friend [workflows :as workflows]
+                             [credentials :as creds])))
 
 ;;read dataset from .csv; delimiter is comma
 (def data
   (io/read-dataset
    "books.csv"
-    :header true))
+   :header true))
 
 ;;view cols names
 ;;(core/col-names data)
@@ -21,8 +21,8 @@
 ;;define connection to db booksdb 
 (def connection
   (cm/make-connection "booksdb"
-                     :host "127.0.0.1"
-                     :port 27017))
+                      :host "127.0.0.1"
+                      :port 27017))
 
 ;;set connection globally
 (cm/set-connection! connection)
@@ -36,10 +36,10 @@
 ;;initial admin username "admin", password "pass"
 (defn insert-admin []
   "Initially insert user with admin role to be able to use the application."
-  (cm/insert! :users 
+  (cm/insert! :users
               {:username "admin"
-                            :password (creds/hash-bcrypt "nimda")
-                            :roles #{"admin"}}))
+               :password (creds/hash-bcrypt "nimda")
+               :roles #{"admin"}}))
 
 ;;initial insertion of dataset read from .csv file
 ;;create book collection

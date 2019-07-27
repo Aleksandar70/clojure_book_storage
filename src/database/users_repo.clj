@@ -1,15 +1,15 @@
 (ns database.users_repo
-   (:require [somnium.congomongo :as cm]
-             [cemerick.friend.credentials :as creds]
-             [ring.util.response :as resp]
-             (cemerick.friend [workflows :as workflows]
-               [credentials :as creds])))
+  (:require [somnium.congomongo :as cm]
+            [cemerick.friend.credentials :as creds]
+            [ring.util.response :as resp]
+            (cemerick.friend [workflows :as workflows]
+                             [credentials :as creds])))
 
 ;;define connection to db booksdb
 (def connection
   (cm/make-connection "booksdb"
-                     :host "127.0.0.1"
-                     :port 27017))
+                      :host "127.0.0.1"
+                      :port 27017))
 
 ;;set connection globally
 (cm/set-connection! connection)
@@ -22,43 +22,43 @@
 
 
 ;;fetch users from database
-(def users (atom 
-               (into {}(let [map (cm/fetch :users :only {:_id false})
-                 users {}]
-               (for [x map]  
-                 (if (= ["user"] (get x :roles))
-                 (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::user}))
-                 (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::admin}))))))))
+(def users (atom
+            (into {} (let [map (cm/fetch :users :only {:_id false})
+                           users {}]
+                       (for [x map]
+                         (if (= ["user"] (get x :roles))
+                           (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::user}))
+                           (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::admin}))))))))
 
 ;;update users after updating fields in users collection
 (defn update-users []
-  (reset! users  
-               (into {}(let [map (cm/fetch :users :only {:_id false})
-                 users {}]
-               (for [x map]  
-                 (if (= ["user"] (get x :roles))
-                 (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::user}))
-                 (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::admin}))))))))
+  (reset! users
+          (into {} (let [map (cm/fetch :users :only {:_id false})
+                         users {}]
+                     (for [x map]
+                       (if (= ["user"] (get x :roles))
+                         (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::user}))
+                         (assoc users  (:username (into {} x)) (assoc (into {} x) :roles #{::admin}))))))))
 
 
 ;;check if user exists in fetched users
 (defn user-exists? [username]
   "Check if user with supplied username exists in the database."
-  (if (not= 0 (count 
-                (filter not-empty 
-                        (cm/fetch :users :only {:_id false} :where {:username username})))) true false))
+  (if (not= 0 (count
+               (filter not-empty
+                       (cm/fetch :users :only {:_id false} :where {:username username})))) true false))
 
 
-  
+
 ;;insert data for the user into db - collection users
 (defn insert-user [username password role]
   "Insert new user under condition that there isn't another one with same username."
   (if-not (user-exists? username)
-    (do (cm/insert! :users 
-              {:username username
-                            :password (creds/hash-bcrypt password)
-                            :roles #{role}})
-    (resp/response "User added to the database!"))
+    (do (cm/insert! :users
+                    {:username username
+                     :password (creds/hash-bcrypt password)
+                     :roles #{role}})
+        (resp/response "User added to the database!"))
     (resp/response "User is already in the database!")))
 
 
@@ -90,6 +90,6 @@
 ;;delete user with supplied username
 (defn delete-user [username]
   "Delete user with supplied username."
-  (do 
+  (do
     (cm/destroy! :users {:username username})
     (resp/response "User deleted!")))

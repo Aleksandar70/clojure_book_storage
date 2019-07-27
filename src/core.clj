@@ -1,6 +1,6 @@
-(ns core)
+(ns core
+  (:require [view.routing :as route]
+            [somnium.congomongo :as cm]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn -main [& args]
+  (route/start-server))

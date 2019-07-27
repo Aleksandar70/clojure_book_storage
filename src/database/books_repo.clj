@@ -7,18 +7,18 @@
 
 ;;get books from book_data collection
 (defn get-books []
-  (distinct (flatten (map vals 
-                          (cm/fetch 
-                            :books :only
-                            {:_id false
-                             :isbn true})))))
+  (distinct (flatten (map vals
+                          (cm/fetch
+                           :books :only
+                           {:_id false
+                            :isbn true})))))
 
 ;;check if book exists
 (defn book-exists? [book]
   "Check if book with supplied isbn exists in the database."
-  (if (not= 0 (count 
-                (filter not-empty 
-                        (cm/fetch :books :only {:_id false} :where {:isbn book})))) true false))
+  (if (not= 0 (count
+               (filter not-empty
+                       (cm/fetch :books :only {:_id false} :where {:isbn book})))) true false))
 
 ;;insert book in books collection
 (defn insert-book [book]
