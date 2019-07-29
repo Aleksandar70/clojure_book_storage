@@ -1,1 +1,71 @@
-Admin Page
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Page</title>
+  </head>
+  <body>
+    <div class="text-center">
+      <div class="logo">Add new book</div>
+
+      <div class="save-form-1">
+        <form id="save-form" class="text-left" action="/addBook" method="POST">
+          <div class="save-form-main-message"></div>
+          <div class="main-save-form">
+            <div class="save-group">
+              <div class="form-group">
+                <label for="bookname" class="sr-only">Name: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookname"
+                  name="bookname"
+                  placeholder="Book Name"
+                /><br />
+                <label for="bookisbn" class="sr-only">ISBN: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookisbn"
+                  name="bookisbn"
+                  placeholder="ISBN of the book"
+                />
+              </div>
+            </div>
+            <button type="submit" class="savebtn">
+              Save book
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+
+      $(".savebtn").click(function(event) {
+        event.preventDefault();
+
+        var book = document.getElementById("bookname").value;
+        $.ajax({
+          url: "/addBook",
+          data: { bookname: book },
+          type: "POST",
+          success: function(result) {
+            alert(result);
+            window.location.reload();
+          }
+        });
+      });
+
+      $(".showModal").click(function(event) {
+        var book = $(".selectpicker").val();
+        $(".modal-body #bookname").val(book);
+      });
+    </script>
+  </body>
+</html>
