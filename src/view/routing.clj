@@ -10,11 +10,11 @@
             [cemerick.friend :as friend]
             [cemerick.friend.credentials :as creds]
             [cemerick.friend.workflows :as workflows]
-            [database.users_repo :as users :refer (users)]
-            [database.books_repo :as dbb]
+            [database.users :as users :refer (users)]
+            [database.books :as dbb]
             [view.templates :as templates]))
 
-(defroutes beer-routes
+(defroutes book-routes
   (GET "/login" [] (html/emit* (templates/show-login)))
   (GET "/" request
     (if (= #{::users/user}
@@ -31,13 +31,18 @@
   (GET "/admin" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-admin (into []
                                                                                (dbb/get-books))))))
+  (POST "/addBook" request
+    (let [name (get (:params request) :bookname)
+         isbn (get (:params request) :bookisbn)]
+              (dbb/insert-book name isbn)))
+
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))
   (route/not-found "Page not found"))
 
 (def app
   (-> (handler/site
-       (friend/authenticate beer-routes
+       (friend/authenticate book-routes
                             {:allow-anon? true
                              :credential-fn #(creds/bcrypt-credential-fn @users %)
                              :workflows [(workflows/interactive-form)]}))

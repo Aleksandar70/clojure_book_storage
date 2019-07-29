@@ -13,7 +13,6 @@
 (defn show-login []
   (html/at (html/html-resource "public/html/login.html")))
 
-
 (defn show-admin [books]
   (html/at (html/html-resource "public/html/admin.html")
            [:select.selectpicker [:option html/first-of-type]]
