@@ -2,7 +2,7 @@
   (:require [incanter.core :as core]
             [incanter.io :as io]
             [somnium.congomongo :as cm]
-            [database.books_repo :only [insert-book get-books]]
+            [database.books :only [insert-book get-books]]
             (cemerick.friend [workflows :as workflows]
                              [credentials :as creds])))
 
@@ -30,8 +30,8 @@
 
 ;;insert books from book_data collection to books collection
 (defn insert-books-from-collection []
-  (for [book (database.books_repo/get-books)]
-    (database.books_repo/insert-book book)))
+  (for [book (database.books/get-books)]
+    (database.books/insert-book book)))
 
 ;;initial admin username "admin", password "pass"
 (defn insert-admin []
@@ -45,7 +45,7 @@
 ;;create book collection
 (defn initialization []
   (do
-    (dorun (cm/mass-insert! :book_data (:rows data)))
+    (dorun (cm/mass-insert! :books (:rows data)))
     (cm/create-collection! :books)
     (insert-books-from-collection)
     (insert-admin)
