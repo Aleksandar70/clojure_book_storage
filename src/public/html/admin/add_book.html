@@ -1,45 +1,88 @@
-<link href="../../css/add_book.css" rel="stylesheet" />
-<div class="wrapper">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add book</title>
+  <link href="../../css/add_book.css" rel="stylesheet" />
+  <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+</head>
+
+<body>
+  <div id="nav-bar"></div>
+  <div class="wrapper">
     <section class="container animated fadeInDown slow custom-ease">
       <h1>Add book</h1>
-        <form id="add-form" action="/addBook" method="POST"> 
-            <div class="content">   
+      <form id="add-form" action="/add-book" method="POST">
+        <div class="content">
           <div class="row">
             <label class="column">
               <span class="label">Title</span>
-              <input name="title" type="text" tabindex="1" placeholder="Harry Potter and the Half-Blood Prince (Harry Potter, #6)" autofocus>
+              <input name="title" type="text" tabindex="1"
+                placeholder="Harry Potter and the Half-Blood Prince (Harry Potter, #6)" autofocus />
             </label>
           </div>
           <div class="row">
             <label class="column">
               <span class="label">Authors</span>
-              <input name="authors" type="text" tabindex="2" placeholder="J.K. Rowling, Mary GrandPré">
+              <input name="authors" type="text" tabindex="2" placeholder="J.K. Rowling, Mary GrandPré" />
             </label>
           </div>
           <div class="row">
             <label class="column">
               <span class="label">ISBN</span>
-              <input name="isbn" type="number" tabindex="3" placeholder="439785960">
+              <input name="isbn" type="number" tabindex="3" placeholder="439785960" />
             </label>
           </div>
           <div class="row">
             <label class="column">
               <span class="label">Original Publication Year</span>
-              <input name="publication-year" type="number" tabindex="4" placeholder="2005">
+              <input name="publication-year" type="number" tabindex="4" placeholder="2005" />
             </label>
           </div>
           <div class="row">
             <label class="column">
               <span class="label">Number of Copies</span>
-              <input name="count" type="number" tabindex="5" placeholder="275">
+              <input name="count" type="number" tabindex="5" placeholder="275" />
             </label>
           </div>
         </div>
-          <input class="button button-primary" type="submit" value="Save" tabindex="6">
-        </form>
+        <input class="button button-primary" type="submit" value="Save" tabindex="6" />
+      </form>
     </section>
-</div>
-<div class="modal">
-  <p>Book saved!</p>
-</div>
-    
+  </div>
+  <script>
+    $("#nav-bar").load("../html/navigation.html");
+
+    $("nav ul #book-opt i").click(function () {
+      const $navList = $("ul");
+      $navList.find(".nav-user").addClass("toggle-show");
+      $navList.find(".nav-book").removeClass("toggle-show");
+      $("nav ul #book-opt")
+        .first()
+        .css("color", "white");
+      $("nav ul #user-opt")
+        .first()
+        .css("color", "#ccc");
+    });
+
+    $("nav ul #user-opt i").click(function () {
+      const $navList = $("ul");
+      $navList.find(".nav-book").addClass("toggle-show");
+      $navList.find(".nav-user").removeClass("toggle-show");
+      $("nav ul #user-opt")
+        .first()
+        .css("color", "white");
+      $("nav ul #book-opt")
+        .first()
+        .css("color", "#ccc");
+    });
+  </script>
+</body>
+
+</html>

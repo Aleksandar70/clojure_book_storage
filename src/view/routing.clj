@@ -20,7 +20,7 @@
     (if (= #{::users/user}
            (:roles (friend/current-authentication)))
       (resp/redirect "/home")
-      (resp/redirect "/admin")))
+      (resp/redirect "/add-book")))
 
   (GET "/home" request
     (friend/authorize #{::users/user} (html/emit*
@@ -28,16 +28,17 @@
                                         (:current (friend/identity request))
                                         (into []
                                               (take 1000 (sort-by str (dbb/get-books))))))))
-  (GET "/admin" request
-    (friend/authorize #{::users/admin} (html/emit* (templates/show-admin (into []
-                                                                               (dbb/get-books))))))
-  (POST "/addBook" request
+  
+  (GET "/add-book" request
+    (friend/authorize #{::users/admin} (html/emit* (templates/show-add-book))))
+  
+  (POST "/add-book" request
     (let [title (get (:params request) :title)
-         authors (get (:params request) :authors)
-         isbn (get (:params request) :isbn)
-         publication-year (get (:params request) :publication-year)
-         count (get (:params request) :count)]
-              (dbb/insert-book title authors isbn publication-year count)))
+          authors (get (:params request) :authors)
+          isbn (get (:params request) :isbn)
+          publication-year (get (:params request) :publication-year)
+          count (get (:params request) :count)]
+      (dbb/insert-book title authors isbn publication-year count)))
 
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))

@@ -1,15 +1,11 @@
-<link
-  rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-  crossorigin="anonymous"
-/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
 <link href="../css/navigation.css" rel="stylesheet" />
 <nav>
   <ul>
     <li id="user-opt"><i class="fas fa-user"></i></li>
     <li id="book-opt"><i class="fas fa-book"></i></li>
-    <li class="nav-book toggle-show"><a href="/addBook">ADD BOOK</a></li>
+    <li class="nav-book toggle-show"><a href="/add-book">ADD BOOK</a></li>
     <li class="nav-book toggle-show"><a href="#">DELETE BOOK</a></li>
     <li class="nav-book toggle-show"><a href="#">EDIT BOOK</a></li>
     <li class="nav-user"><a href="#">ADD USER</a></li>
@@ -19,19 +15,19 @@
   </ul>
 </nav>
 <script>
-    $("nav ul #book-opt i").click(function () {
-        const $navList = $('ul');
-        $navList.find('.nav-user').addClass('toggle-show');
-        $navList.find('.nav-book').removeClass('toggle-show');
-        $("nav ul #book-opt").first().css("color", "white")
-        $("nav ul #user-opt").first().css("color", "#ccc")
-    });
-    
-    $("nav ul #user-opt i").click(function () {
-        const $navList = $('ul');
-        $navList.find('.nav-book').addClass('toggle-show')
-        $navList.find('.nav-user').removeClass('toggle-show');
-        $("nav ul #user-opt").first().css("color", "white")
-        $("nav ul #book-opt").first().css("color", "#ccc")
-    });
+  $("nav ul #book-opt i").click(function () {
+    const $navList = $('ul');
+    $navList.find('.nav-user').addClass('toggle-show');
+    $navList.find('.nav-book').removeClass('toggle-show');
+    $("nav ul #book-opt").first().css("color", "white")
+    $("nav ul #user-opt").first().css("color", "#ccc")
+  });
+
+  $("nav ul #user-opt i").click(function () {
+    const $navList = $('ul');
+    $navList.find('.nav-book').addClass('toggle-show')
+    $navList.find('.nav-user').removeClass('toggle-show');
+    $("nav ul #user-opt").first().css("color", "white")
+    $("nav ul #book-opt").first().css("color", "#ccc")
+  });
 </script>

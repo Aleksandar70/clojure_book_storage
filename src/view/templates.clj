@@ -13,7 +13,5 @@
 (defn show-login []
   (html/at (html/html-resource "public/html/login.html")))
 
-(defn show-admin [books]
-  (html/at (html/html-resource "public/html/admin/admin.html")
-           [:select.selectpicker [:option html/first-of-type]]
-           (html/clone-for [book books] (html/content (str book)))))
+(defn show-add-book []
+  (html/at (html/html-resource "public/html/admin/add_book.html")))
