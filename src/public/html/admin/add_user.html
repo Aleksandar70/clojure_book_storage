@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add user</title>
+    <link href="../../css/add_book.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="nav-bar"></div>
+    <div class="wrapper">
+        <section class="container animated fadeInDown slow custom-ease">
+            <h1>Add user</h1>
+            <form id="add-form" action="/add-user" method="POST">
+                <div class="content">
+                    <div class="row">
+                        <label class="column">
+                            <span class="label">Username</span>
+                            <input name="username" type="text" tabindex="1" placeholder="Coni" autofocus />
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label class="column">
+                            <span class="label">Password</span>
+                            <input name="password" type="password" tabindex="2" placeholder="password" />
+                        </label>
+                    </div>
+                    <div class="row">
+                            <label class="column">
+                                <span class="label">Confirm Password</span>
+                                <input name="confirm-password" type="password" tabindex="3" placeholder="password" />
+                            </label>
+                        </div>
+                    <div class="row">
+                        <label class="has-other">
+                            <span class="label">Role</span>
+
+                            <div class="select-wrapper">
+                                <span class="select">
+                                    <select name="role" tabindex="4">
+                                        <option value="" selected disabled>Select role...</option>
+                                        <option value="user">USER</option>
+                                        <option value="admin">ADMIN</option>
+                                    </select>
+                                    <span class="icon select-icon"></span>
+                                </span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <input class="button button-primary" type="submit" value="Save" tabindex="5" />
+            </form>
+        </section>
+    </div>
+    <script>
+        $("#nav-bar").load("../html/navigation.html");
+    </script>
+</body>
+
+</html>

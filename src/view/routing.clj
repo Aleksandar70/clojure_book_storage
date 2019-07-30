@@ -47,6 +47,16 @@
     (let [isbn (get (:params request) :isbn)]
       (dbb/delete-book isbn)))
 
+  (GET "/add-user" request
+    (friend/authorize #{::users/admin} (html/emit* (templates/show-add-user))))
+
+  (POST "/add-user" request
+    (let [username (get (:params request) :username)
+          password (get (:params request) :password)
+          confirm-password (get (:params request) :confirm-password)
+          role (get (:params request) :role)]
+      (users/insert-user username password confirm-password role)))
+
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))
   (route/not-found "Page not found"))
