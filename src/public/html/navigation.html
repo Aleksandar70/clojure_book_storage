@@ -19,7 +19,7 @@
   </ul>
 </nav>
 <script>
-    $("nav ul #book-opt").click(function () {
+    $("nav ul #book-opt i").click(function () {
         const $navList = $('ul');
         $navList.find('.nav-user').addClass('toggle-show');
         $navList.find('.nav-book').removeClass('toggle-show');
@@ -27,7 +27,7 @@
         $("nav ul #user-opt").first().css("color", "#ccc")
     });
     
-    $("nav ul #user-opt").click(function () {
+    $("nav ul #user-opt i").click(function () {
         const $navList = $('ul');
         $navList.find('.nav-book').addClass('toggle-show')
         $navList.find('.nav-user').removeClass('toggle-show');
