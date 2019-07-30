@@ -28,10 +28,10 @@
                                         (:current (friend/identity request))
                                         (into []
                                               (take 1000 (sort-by str (dbb/get-books))))))))
-  
+
   (GET "/add-book" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-add-book))))
-  
+
   (POST "/add-book" request
     (let [title (get (:params request) :title)
           authors (get (:params request) :authors)
@@ -39,6 +39,13 @@
           publication-year (get (:params request) :publication-year)
           count (get (:params request) :count)]
       (dbb/insert-book title authors isbn publication-year count)))
+
+  (GET "/delete-book" request
+    (friend/authorize #{::users/admin} (html/emit* (templates/show-delete-book))))
+
+  (POST "/delete-book" request
+    (let [isbn (get (:params request) :isbn)]
+      (dbb/delete-book isbn)))
 
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))

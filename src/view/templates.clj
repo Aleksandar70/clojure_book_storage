@@ -15,3 +15,6 @@
 
 (defn show-add-book []
   (html/at (html/html-resource "public/html/admin/add_book.html")))
+
+(defn show-delete-book []
+  (html/at (html/html-resource "public/html/admin/delete_book.html")))

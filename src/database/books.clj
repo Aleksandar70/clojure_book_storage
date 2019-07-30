@@ -5,7 +5,6 @@
             [incanter.mongodb :as db]
             [ring.util.response :as resp]))
 
-;;get books from books collection
 (defn get-books []
   (distinct (flatten (map vals
                           (cm/fetch
@@ -13,14 +12,12 @@
                            {:_id false
                             :isbn true})))))
 
-;;check if book exists
 (defn book-exists? [isbn]
   "Check if book with supplied isbn exists in the database."
   (if (not= 0 (count
                (filter not-empty
                        (cm/fetch :books :only {:_id false} :where {:isbn isbn})))) true false))
 
-;;insert book in books collection
 (defn insert-book [title authors isbn publication-year count]
   "Insert new book under condition that there isn't another one with same isbn."
   (if-not (book-exists? isbn)
@@ -35,3 +32,8 @@
       (resp/response "Book is already in the database"))
     (resp/response "Book exists!")))
 
+(defn delete-book [isbn]
+  "Delete book with supplied isbn."
+  (do
+    (cm/destroy! :books {:isbn isbn})
+    (resp/response "Book deleted!")))
