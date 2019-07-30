@@ -1,0 +1,58 @@
+body {
+  font-family: "Oswald", sans-serif;
+  line-height: 1.25;
+  margin: 0;
+}
+
+nav {
+  background-color: #384150;
+  padding: 2em;
+  text-align: center;
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  font-size: 1.5em;
+  padding: 0.25em 1em;
+  text-transform: uppercase;
+}
+
+nav li:not(:last-child) {
+  border-right: 1px solid #666;
+}
+
+nav a {
+  border-bottom: 3px solid #666;
+  color: #ccc;
+  text-decoration: none;
+}
+
+nav a:hover {
+  border-bottom: 3px solid #8bc34a;
+}
+
+.fas {
+  border-bottom: 3px solid #666;
+  text-decoration: none;
+}
+
+nav i:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.toggle-show {
+  display: none;
+}
+
+#book-opt {
+  color: #ccc;
+}
+
+#user-opt {
+  color: white;
+}
