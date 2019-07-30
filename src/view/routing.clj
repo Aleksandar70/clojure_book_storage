@@ -32,9 +32,12 @@
     (friend/authorize #{::users/admin} (html/emit* (templates/show-admin (into []
                                                                                (dbb/get-books))))))
   (POST "/addBook" request
-    (let [name (get (:params request) :bookname)
-         isbn (get (:params request) :bookisbn)]
-              (dbb/insert-book name isbn)))
+    (let [title (get (:params request) :title)
+         authors (get (:params request) :authors)
+         isbn (get (:params request) :isbn)
+         publication-year (get (:params request) :publication-year)
+         count (get (:params request) :count)]
+              (dbb/insert-book title authors isbn publication-year count)))
 
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))

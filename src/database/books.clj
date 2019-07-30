@@ -21,11 +21,16 @@
                        (cm/fetch :books :only {:_id false} :where {:isbn isbn})))) true false))
 
 ;;insert book in books collection
-(defn insert-book [name isbn]
+(defn insert-book [title authors isbn publication-year count]
   "Insert new book under condition that there isn't another one with same isbn."
   (if-not (book-exists? isbn)
     (do
-      (cm/insert! :books {:isbn isbn :title name})
+      (cm/insert! :books {:title title 
+                          :isbn isbn 
+                          :authors authors 
+                          :original_publication_year publication-year 
+                          :books_count count
+                          :language_code "eng"})
       (resp/response "Book added to the database")
       (resp/response "Book is already in the database"))
     (resp/response "Book exists!")))

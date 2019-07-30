@@ -1,0 +1,45 @@
+<link href="../../css/add_book.css" rel="stylesheet" />
+<div class="wrapper">
+    <section class="container animated fadeInDown slow custom-ease">
+      <h1>Add book</h1>
+        <form id="add-form" action="/addBook" method="POST"> 
+            <div class="content">   
+          <div class="row">
+            <label class="column">
+              <span class="label">Title</span>
+              <input name="title" type="text" tabindex="1" placeholder="Harry Potter and the Half-Blood Prince (Harry Potter, #6)" autofocus>
+            </label>
+          </div>
+          <div class="row">
+            <label class="column">
+              <span class="label">Authors</span>
+              <input name="authors" type="text" tabindex="2" placeholder="J.K. Rowling, Mary GrandPré">
+            </label>
+          </div>
+          <div class="row">
+            <label class="column">
+              <span class="label">ISBN</span>
+              <input name="isbn" type="number" tabindex="3" placeholder="439785960">
+            </label>
+          </div>
+          <div class="row">
+            <label class="column">
+              <span class="label">Original Publication Year</span>
+              <input name="publication-year" type="number" tabindex="4" placeholder="2005">
+            </label>
+          </div>
+          <div class="row">
+            <label class="column">
+              <span class="label">Number of Copies</span>
+              <input name="count" type="number" tabindex="5" placeholder="275">
+            </label>
+          </div>
+        </div>
+          <input class="button button-primary" type="submit" value="Save" tabindex="6">
+        </form>
+    </section>
+</div>
+<div class="modal">
+  <p>Book saved!</p>
+</div>
+    
