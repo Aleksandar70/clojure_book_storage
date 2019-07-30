@@ -21,3 +21,6 @@
 
 (defn show-add-user []
   (html/at (html/html-resource "public/html/admin/add_user.html")))
+
+(defn show-delete-user []
+  (html/at (html/html-resource "public/html/admin/delete_user.html")))

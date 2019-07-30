@@ -57,6 +57,13 @@
           role (get (:params request) :role)]
       (users/insert-user username password confirm-password role)))
 
+  (GET "/delete-user" request
+    (friend/authorize #{::users/admin} (html/emit* (templates/show-delete-user))))
+
+  (POST "/delete-user" request
+    (let [username (get (:params request) :username)]
+      (users/delete-user username)))
+  
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))
   (route/not-found "Page not found"))
