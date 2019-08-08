@@ -26,18 +26,6 @@
 (defn show-delete-user []
   (html/at (html/html-resource "public/html/admin/delete_user.html")))
 
-(defn show-edit-user [user]
-  (if (= user nil)
-    (html/at (html/html-resource "public/html/admin/edit_user.html"))
-    (html/at (html/html-resource "public/html/admin/edit_user.html")
-             [:input#username] (html/set-attr :value (get-in (first user) [:username]))
-             (if (= "admin" (first (get-in (first user) [:roles])))
-               ([:option#selected] (html/content "ADMIN"))
-               ([:option#selected] (html/content "USER")))
-             (if (= "user" (first (get-in (first user) [:roles])))
-               ([:option#not_selected] (html/content "ADMIN"))
-               ([:option#not_selected] (html/content "USER"))))))
-
 (defn show-edit-book [book]
   (if (= book nil)
     (html/at (html/html-resource "public/html/admin/edit_book.html"))

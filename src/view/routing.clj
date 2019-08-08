@@ -64,15 +64,6 @@
     (let [username (get (:params request) :username)]
       (users/delete-user username)))
 
-  (GET "/edit-user" request
-    (friend/authorize #{::users/admin}
-                      (let [user (users/get-user (get (:params request) :username))]
-                        (html/emit* (templates/show-edit-user user)))))
-
-  (POST "/edit-user" request
-    (let [username (get (:params request) :username)]
-      (users/get-user username)))
-
   (GET "/edit-book" request
     (friend/authorize #{::users/admin}
                       (if (not= (get (:params request) :isbn) nil)
