@@ -1,92 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:400,700"
-      rel="stylesheet"
-    />
-    <link href="../css/login.css" rel="stylesheet" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
-  </head>
-  <body>
-    <div class="wrap">
-      <form class="login" id="login-form" action="/login" method="POST">
-        <!-- <div class="login-form-main-message"></div> -->
-        <div class="toggle-bar">
-          <div class="toggle-login active"><span>Login</span></div>
-          <div class="toggle-register"><span>Register</span></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
+  <link href="../css/login.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <form class="login" id="login-form" action="/login" method="POST">
+      <!-- <div class="login-form-main-message"></div> -->
+      <div class="toggle-bar">
+        <div class="toggle-login active"><span>Login</span></div>
+        <div class="toggle-register"><span>Register</span></div>
+      </div>
+      <div class="login-body">
+        <div class="input-section">
+          <i class="fas fa-user"></i>
+          <input class="user-input" type="text" id="username" name="username" placeholder="Username" />
         </div>
-        <div class="login-body">
-          <div class="input-section">
-            <i class="fas fa-user"></i>
-            <input
-              class="user-input"
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Username"
-            />
-          </div>
-          <div class="input-section">
-            <i class="fas fa-lock"></i>
-            <input
-              class="user-input"
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-            />
-          </div>
-          <button class="btn" id="btn-login">Login</button>
+        <div class="input-section">
+          <i class="fas fa-lock"></i>
+          <input class="user-input" type="password" id="password" name="password" placeholder="Password" />
         </div>
-        <div class="register-body" style="display:none;">
-          <div class="input-section">
-            <i class="fas fa-user"></i>
-            <input
-              class="user-input"
-              type="text"
-              placeholder="Username"
-              id="reg_Username"
-            />
-          </div>
-          <div class="input-section">
-            <i class="fas fa-lock"></i>
-            <input
-              class="user-input"
-              type="password"
-              placeholder="Password"
-              id="reg_Password"
-            />
-          </div>
-          <div class="input-section">
-            <i class="fas fa-lock"></i>
-            <input
-              class="user-input"
-              type="password"
-              placeholder="Confirm Password"
-              id="reg_Conf_Password"
-            />
-          </div>
-          <button class="btn" type="submit" id="btn-register">Register</button>
+        <button class="btn" id="btn-login">Login</button>
+      </div>
+      <div class="register-body" style="display:none;">
+        <div class="input-section">
+          <i class="fas fa-user"></i>
+          <input class="user-input" type="text" placeholder="Username" id="reg_Username" />
         </div>
-      </form>
-    </div>
-    <script src="../js/login.js"></script>
-    <script src="../js/login_switch.js"></script>
-  </body>
+        <div class="input-section">
+          <i class="fas fa-lock"></i>
+          <input class="user-input" type="password" placeholder="Password" id="reg_Password" />
+        </div>
+        <div class="input-section">
+          <i class="fas fa-lock"></i>
+          <input class="user-input" type="password" placeholder="Confirm Password" id="reg_Conf_Password" />
+        </div>
+        <button class="btn" type="submit" id="btn-register">Register</button>
+      </div>
+    </form>
+  </div>
+  <script src="../js/login.js"></script>
+  <script src="../js/login_switch.js"></script>
+</body>
+
 </html>

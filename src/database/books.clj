@@ -22,12 +22,11 @@
   "Insert new book under condition that there isn't another one with same isbn."
   (if-not (book-exists? isbn)
     (do
-      (cm/insert! :books {:title title 
-                          :isbn isbn 
-                          :authors authors 
-                          :original_publication_year publication-year 
-                          :books_count count
-                          :language_code "eng"})
+      (cm/insert! :books {:title title
+                          :isbn isbn
+                          :authors authors
+                          :original_publication_year publication-year
+                          :books_count count})
       (resp/response "Book added to the database")
       (resp/response "Book is already in the database"))
     (resp/response "Book exists!")))
@@ -37,3 +36,16 @@
   (do
     (cm/destroy! :books {:isbn isbn})
     (resp/response "Book deleted!")))
+
+(defn get-book [isbn]
+  (filter not-empty (cm/fetch :books :only {:_id false} :where {:isbn isbn})))
+
+(defn update-book [title authors isbn year count request]
+  "Update book info."
+  (let [old-book (cm/fetch-one :books :where {:isbn (Integer/parseInt isbn)})]
+    (do
+      (cm/update! :books old-book (merge old-book {:title title
+                                                   :authors authors
+                                                   :original_publication_year year
+                                                   :books_count count}))
+      (resp/response (str title authors isbn year count)))))

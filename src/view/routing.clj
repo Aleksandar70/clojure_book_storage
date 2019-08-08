@@ -11,7 +11,7 @@
             [cemerick.friend.credentials :as creds]
             [cemerick.friend.workflows :as workflows]
             [database.users :as users :refer (users)]
-            [database.books :as dbb]
+            [database.books :as books]
             [view.templates :as templates]))
 
 (defroutes book-routes
@@ -20,14 +20,14 @@
     (if (= #{::users/user}
            (:roles (friend/current-authentication)))
       (resp/redirect "/home")
-      (resp/redirect "/add-book")))
+      (resp/redirect "/add-user")))
 
   (GET "/home" request
     (friend/authorize #{::users/user} (html/emit*
                                        (templates/show-home
                                         (:current (friend/identity request))
                                         (into []
-                                              (take 1000 (sort-by str (dbb/get-books))))))))
+                                              (take 1000 (sort-by str (books/get-books))))))))
 
   (GET "/add-book" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-add-book))))
@@ -38,14 +38,14 @@
           isbn (get (:params request) :isbn)
           publication-year (get (:params request) :publication-year)
           count (get (:params request) :count)]
-      (dbb/insert-book title authors isbn publication-year count)))
+      (books/insert-book title authors isbn publication-year count)))
 
   (GET "/delete-book" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-delete-book))))
 
   (POST "/delete-book" request
     (let [isbn (get (:params request) :isbn)]
-      (dbb/delete-book isbn)))
+      (books/delete-book isbn)))
 
   (GET "/add-user" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-add-user))))
@@ -63,7 +63,32 @@
   (POST "/delete-user" request
     (let [username (get (:params request) :username)]
       (users/delete-user username)))
-  
+
+  (GET "/edit-user" request
+    (friend/authorize #{::users/admin}
+                      (let [user (users/get-user (get (:params request) :username))]
+                        (html/emit* (templates/show-edit-user user)))))
+
+  (POST "/edit-user" request
+    (let [username (get (:params request) :username)]
+      (users/get-user username)))
+
+  (GET "/edit-book" request
+    (friend/authorize #{::users/admin}
+                      (if (not= (get (:params request) :isbn) nil)
+                        (let [book (books/get-book (Integer/parseInt (get (:params request) :isbn)))]
+                          (html/emit* (templates/show-edit-book book)))
+                        (html/emit* (templates/show-edit-book nil)))))
+
+  (POST "/edit-book" request
+    (let [title (get (:params request) :title)
+          authors (get (:params request) :authors)
+          isbn (get (:params request) :isbn)
+          year (get (:params request) :year)
+          count (get (:params request) :count)
+          req (get (:params request) :request)]
+      (books/update-book title authors isbn year count)))
+
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))
   (route/not-found "Page not found"))

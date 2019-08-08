@@ -7,10 +7,10 @@
     <li id="book-opt"><i class="fas fa-book"></i></li>
     <li class="nav-book toggle-show"><a href="/add-book">ADD BOOK</a></li>
     <li class="nav-book toggle-show"><a href="/delete-book">DELETE BOOK</a></li>
-    <li class="nav-book toggle-show"><a href="#">EDIT BOOK</a></li>
+    <li class="nav-book toggle-show"><a href="/edit-book">EDIT BOOK</a></li>
     <li class="nav-user"><a href="/add-user">ADD USER</a></li>
     <li class="nav-user"><a href="/delete-user">DELETE USER</a></li>
-    <li class="nav-user"><a href="#">EDIT USER</a></li>
+    <li class="nav-user"><a href="/edit-user">EDIT USER</a></li>
     <li><a href="/logout">LOG OUT</a></li>
   </ul>
 </nav>
@@ -19,15 +19,17 @@
     const $navList = $('ul');
     $navList.find('.nav-user').addClass('toggle-show');
     $navList.find('.nav-book').removeClass('toggle-show');
-    $("nav ul #book-opt").first().css("color", "white")
-    $("nav ul #user-opt").first().css("color", "#ccc")
+    $("nav ul #book-opt").first().css("color", "white");
+    $("nav ul #user-opt").first().css("color", "#ccc");
+    $.cookie("nav-state", "book");
   });
 
   $("nav ul #user-opt i").click(function () {
     const $navList = $('ul');
-    $navList.find('.nav-book').addClass('toggle-show')
+    $navList.find('.nav-book').addClass('toggle-show');
     $navList.find('.nav-user').removeClass('toggle-show');
-    $("nav ul #user-opt").first().css("color", "white")
-    $("nav ul #book-opt").first().css("color", "#ccc")
+    $("nav ul #user-opt").first().css("color", "white");
+    $("nav ul #book-opt").first().css("color", "#ccc");
+    $.cookie("nav-state", "user");
   });
 </script>

@@ -70,11 +70,14 @@ h1 {
 
 /* structure */
 .wrapper {
-  min-height: 100vh;
   min-width: 100vh;
   overflow: auto;
   padding: 3em 1em;
   text-align: center;
+}
+
+.show-edit {
+  display: none;
 }
 
 .container {
