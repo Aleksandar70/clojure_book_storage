@@ -85,8 +85,7 @@
           authors (get (:params request) :authors)
           isbn (get (:params request) :isbn)
           year (get (:params request) :year)
-          count (get (:params request) :count)
-          req (get (:params request) :request)]
+          count (get (:params request) :count)]
       (books/update-book title authors isbn year count)))
 
   (route/resources "/")

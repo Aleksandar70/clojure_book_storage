@@ -40,7 +40,7 @@
 (defn get-book [isbn]
   (filter not-empty (cm/fetch :books :only {:_id false} :where {:isbn isbn})))
 
-(defn update-book [title authors isbn year count request]
+(defn update-book [title authors isbn year count]
   "Update book info."
   (let [old-book (cm/fetch-one :books :where {:isbn (Integer/parseInt isbn)})]
     (do
@@ -48,4 +48,4 @@
                                                    :authors authors
                                                    :original_publication_year year
                                                    :books_count count}))
-      (resp/response (str title authors isbn year count)))))
+      (resp/response "Book updated."))))
