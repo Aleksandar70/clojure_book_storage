@@ -6,11 +6,15 @@
             [ring.util.response :as resp]))
 
 (defn get-books []
-  (distinct (flatten (map vals
-                          (cm/fetch
-                           :books :only
-                           {:_id false
-                            :isbn true})))))
+  (distinct (map vals
+                 (cm/fetch
+                  :books :only
+                  {:_id false
+                   :isbn true
+                   :title true
+                   :authors true
+                   :original_publication_year true
+                   :books_count true}))))
 
 (defn book-exists? [isbn]
   "Check if book with supplied isbn exists in the database."

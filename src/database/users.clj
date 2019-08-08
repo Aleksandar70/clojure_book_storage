@@ -63,7 +63,6 @@
       (resp/response "User is already in the database!"))
   (resp/response "Passwords do not match.")))
 
-
 ;;get all users in users collection 
 (defn get-all-users []
   "Get all users in :users collection from mongodb."
