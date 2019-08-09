@@ -34,11 +34,13 @@
       (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))
     (resp/redirect (str (nth (vals (get request :headers)) 8) "?error"))))
 
-(defn delete-book [isbn]
+(defn delete-book [isbn request]
   "Delete book with supplied isbn."
-  (do
-    (cm/destroy! :books {:isbn isbn})
-    (resp/response "Book deleted!")))
+  (if (book-exists? (Integer/parseInt isbn))
+    (do
+      (cm/destroy! :books {:isbn (Integer/parseInt isbn)})
+      (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))
+    (resp/redirect (str (nth (vals (get request :headers)) 8) "?error"))))
 
 (defn get-book [isbn]
   (filter not-empty (cm/fetch :books :only {:_id false} :where {:isbn isbn})))

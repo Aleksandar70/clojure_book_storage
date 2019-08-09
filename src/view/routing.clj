@@ -45,7 +45,7 @@
 
   (POST "/delete-book" request
     (let [isbn (get (:params request) :isbn)]
-      (books/delete-book isbn)))
+      (books/delete-book isbn request)))
 
   (GET "/add-user" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-add-user))))
