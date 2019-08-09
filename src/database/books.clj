@@ -49,6 +49,6 @@
     (do
       (cm/update! :books old-book (merge old-book {:title title
                                                    :authors authors
-                                                   :original_publication_year year
-                                                   :books_count count}))
+                                                   :original_publication_year (Double/parseDouble year)
+                                                   :books_count (Integer/parseInt count)}))
       (resp/response "Book updated."))))
