@@ -22,19 +22,19 @@
                     <div class="row">
                         <label class="column">
                             <span class="label">Username</span>
-                            <input name="username" type="text" tabindex="1" placeholder="Coni" autofocus />
+                            <input name="username" type="text" tabindex="1" placeholder="Coni" required autofocus />
                         </label>
                     </div>
                     <div class="row">
                         <label class="column">
                             <span class="label">Password</span>
-                            <input name="password" type="password" tabindex="2" placeholder="password" />
+                            <input name="password" type="password" tabindex="2" placeholder="password" required />
                         </label>
                     </div>
                     <div class="row">
                             <label class="column">
                                 <span class="label">Confirm Password</span>
-                                <input name="confirm-password" type="password" tabindex="3" placeholder="password" />
+                                <input name="confirm-password" type="password" tabindex="3" placeholder="password" required />
                             </label>
                         </div>
                     <div class="row">
@@ -43,7 +43,7 @@
 
                             <div class="select-wrapper">
                                 <span class="select">
-                                    <select name="role" tabindex="4">
+                                    <select name="role" tabindex="4" required>
                                         <option value="" selected disabled>Select role...</option>
                                         <option value="user">USER</option>
                                         <option value="admin">ADMIN</option>
