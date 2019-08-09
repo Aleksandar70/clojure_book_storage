@@ -62,7 +62,7 @@
 
   (POST "/delete-user" request
     (let [username (get (:params request) :username)]
-      (users/delete-user username)))
+      (users/delete-user username request)))
 
   (GET "/edit-book" request
     (friend/authorize #{::users/admin}

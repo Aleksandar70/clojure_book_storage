@@ -89,11 +89,13 @@
       (resp/response "Pasword sucessfully reset!"))))
 
 ;;delete user with supplied username
-(defn delete-user [username]
+(defn delete-user [username request]
   "Delete user with supplied username."
-  (do
-    (cm/destroy! :users {:username username})
-    (resp/response "User deleted!")))
+  (if (user-exists? username)
+    (do
+      (cm/destroy! :users {:username username})
+      (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))
+    (resp/redirect (str (nth (vals (get request :headers)) 8) "?error"))))
 
 ; (defn display-message [param]
 ;   (resp/redirect (str (nth (vals (get request :headers)) 8) param)))
