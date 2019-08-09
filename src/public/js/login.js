@@ -37,4 +37,11 @@
 		}
 	}
 
+	if (window.location.search.includes('login_failed')) {
+		$('.login-form-main-message').toggleClass('message-toggle');
+		setTimeout(function () {
+			$('.login-form-main-message').toggleClass('message-toggle');
+		}, 2000)
+	}
+
 })(jQuery);
