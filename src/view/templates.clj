@@ -2,9 +2,6 @@
   (:require [net.cgrand.enlive-html :as html]
             [ring.util.response :as resp]))
 
-(defn show-page-not-found [])
-(html/at (html/html-resource "public/html/page_not_found.html"))
-
 (defn show-home [user books]
   (html/at (html/html-resource "public/html/home.html")
            [:select.selectpicker [:option html/first-of-type]]

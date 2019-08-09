@@ -51,7 +51,7 @@
 
 
 ;;insert data for the user into db - collection users
-(defn insert-user [username password confirm-password role]
+(defn insert-user [username password confirm-password role request]
   "Insert new user under condition that there isn't another one with same username."
   (if (= password confirm-password)
     (if-not (user-exists? username)
@@ -59,9 +59,9 @@
                       {:username username
                        :password (creds/hash-bcrypt password)
                        :roles #{role}})
-          (resp/response "User added to the database!"))
-      (resp/response "User is already in the database!"))
-  (resp/response "Passwords do not match.")))
+          (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))
+      (resp/redirect (str (nth (vals (get request :headers)) 8) "?error-user")))
+    (resp/redirect (str (nth (vals (get request :headers)) 8) "?error-password"))))
 
 ;;get all users in users collection 
 (defn get-all-users []
@@ -94,3 +94,6 @@
   (do
     (cm/destroy! :users {:username username})
     (resp/response "User deleted!")))
+
+; (defn display-message [param]
+;   (resp/redirect (str (nth (vals (get request :headers)) 8) param)))

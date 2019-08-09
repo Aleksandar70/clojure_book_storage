@@ -22,18 +22,17 @@
                (filter not-empty
                        (cm/fetch :books :only {:_id false} :where {:isbn isbn})))) true false))
 
-(defn insert-book [title authors isbn publication-year count]
+(defn insert-book [title authors isbn publication-year count request]
   "Insert new book under condition that there isn't another one with same isbn."
   (if-not (book-exists? isbn)
     (do
       (cm/insert! :books {:title title
-                          :isbn isbn
+                          :isbn (Long/parseLong isbn)
                           :authors authors
-                          :original_publication_year publication-year
-                          :books_count count})
-      (resp/response "Book added to the database")
-      (resp/response "Book is already in the database"))
-    (resp/response "Book exists!")))
+                          :original_publication_year (Double/parseDouble publication-year)
+                          :books_count (Integer/parseInt count)})
+      (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))
+    (resp/redirect (str (nth (vals (get request :headers)) 8) "?error"))))
 
 (defn delete-book [isbn]
   "Delete book with supplied isbn."

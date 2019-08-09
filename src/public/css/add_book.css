@@ -400,3 +400,22 @@ select.is-valid {
 .modal.show {
   display: block;
 }
+
+.message-section {
+  margin-top: 20px;
+  min-width: 50vh;
+  overflow: auto;
+  padding: 1em 1em;
+  text-align: center;
+  background-color: #eb0c0c;
+}
+
+.message-output {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+}
+
+.message-toggle {
+  display: none;
+}

@@ -38,7 +38,7 @@
           isbn (get (:params request) :isbn)
           publication-year (get (:params request) :publication-year)
           count (get (:params request) :count)]
-      (books/insert-book title authors isbn publication-year count)))
+      (books/insert-book title authors isbn publication-year count request)))
 
   (GET "/delete-book" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-delete-book))))
@@ -55,7 +55,7 @@
           password (get (:params request) :password)
           confirm-password (get (:params request) :confirm-password)
           role (get (:params request) :role)]
-      (users/insert-user username password confirm-password role)))
+      (users/insert-user username password confirm-password role request)))
 
   (GET "/delete-user" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-delete-user))))
