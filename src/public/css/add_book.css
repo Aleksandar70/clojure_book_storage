@@ -407,7 +407,14 @@ select.is-valid {
   overflow: auto;
   padding: 1em 1em;
   text-align: center;
-  background-color: #eb0c0c;
+}
+
+.edit-message-section {
+  margin: 0 auto;
+  width: 52vh;
+  overflow: auto;
+  padding: 1em 1em;
+  text-align: center;
 }
 
 .message-output {

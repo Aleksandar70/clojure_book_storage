@@ -12,7 +12,8 @@
             [cemerick.friend.workflows :as workflows]
             [database.users :as users :refer (users)]
             [database.books :as books]
-            [view.templates :as templates]))
+            [view.templates :as templates]
+            [clojure.string :as str]))
 
 (defroutes book-routes
   (GET "/login" [] (html/emit* (templates/show-login)))
@@ -67,7 +68,7 @@
   (GET "/edit-book" request
     (friend/authorize #{::users/admin}
                       (if (not= (get (:params request) :isbn) nil)
-                        (let [book (books/get-book (Integer/parseInt (get (:params request) :isbn)))]
+                        (let [book (books/get-book (Integer/parseInt (first (str/split (get (:params request) :isbn) #"\?(.*)"))) request)]
                           (html/emit* (templates/show-edit-book book)))
                         (html/emit* (templates/show-edit-book nil)))))
 
@@ -77,7 +78,7 @@
           isbn (get (:params request) :isbn)
           year (get (:params request) :year)
           count (get (:params request) :count)]
-      (books/update-book title authors isbn year count)))
+      (books/update-book title authors isbn year count request)))
 
   (route/resources "/")
   (friend/logout (ANY "/logout" request (resp/redirect "/login")))

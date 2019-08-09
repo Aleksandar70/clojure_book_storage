@@ -42,10 +42,12 @@
       (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))
     (resp/redirect (str (nth (vals (get request :headers)) 8) "?error"))))
 
-(defn get-book [isbn]
-  (filter not-empty (cm/fetch :books :only {:_id false} :where {:isbn isbn})))
+(defn get-book [isbn request]
+  (if (book-exists? isbn)
+    (filter not-empty (cm/fetch :books :only {:_id false} :where {:isbn isbn}))
+    (resp/redirect (str (nth (vals (get request :headers)) 8) "?error"))))
 
-(defn update-book [title authors isbn year count]
+(defn update-book [title authors isbn year count request]
   "Update book info."
   (let [old-book (cm/fetch-one :books :where {:isbn (Integer/parseInt isbn)})]
     (do
@@ -53,4 +55,4 @@
                                                    :authors authors
                                                    :original_publication_year (Double/parseDouble year)
                                                    :books_count (Integer/parseInt count)}))
-      (resp/response "Book updated."))))
+      (resp/redirect (str (nth (vals (get request :headers)) 8) "?success")))))
