@@ -4,7 +4,7 @@ This is a system for administrators where they can manage database of books. Thi
 ## Usage
 Book storage application is using mongo database and you need to install mongodb (I used version 3.6.8). To use this application you need to install leiningen also (You can follow instructions on https://leiningen.org/). Database of this application you can find on https://www.kaggle.com/zygmunt/goodbooks-10k#books.csv, it contains more than a thousand books.
 
-To initialize the database with the necessary data you need to set :main to **database.init** in project.clj file. Then you run cmd and navigate to the project folder and type lein run. After the database is filled with the data message "Initialization done!" will be displayed on the console. To start the web application you will need to change :main to **core** in project.clj file. You can now find a web app in your browser by typing http://localhost:8080/.
+To initialize the database with the necessary data you need to set :main to **database.init** in project.clj file. Then you run cmd and navigate to the project folder and type lein run. After the database is filled with the data message "Initialization done!" will be displayed on the console. To start the web application you will need to change :main to **core** in project.clj file. You can now find a web app in your browser by typing http://localhost:8080/. At the beggining we have initial Admin user with username 'admin' and password 'nimda'.
 
 ## References
 * https://github.com/cgrand/enlive
