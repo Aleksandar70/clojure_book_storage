@@ -1,13 +1,12 @@
-# book_storage
-This is a web application that allows users to have their personal libraries in one place. He/She can add a new book in his library, or edit book, even delete if he/she wants out of his/her library. In the beginning, after log in, the home page is showing. There is a list of all books in the library. We have two roles 'Admin' and 'User' role. This application is specifically for admin users.
+# Book storage
+This is a system for administrators where they can manage database of books. This web application allows administrators to manage their libraries in one place. They can add a new book, edit existing book, even delete if they want it out of their library. In the beginning, after log in, the home page is shown with a list of all the books in the library. It also allows users with admin privileges to create new users (admins or users) and delete them.
 
 ## Usage
 Book storage application is using mongo database and you need to install mongodb (I used version 3.6.8). To use this application you need to install leiningen also (You can follow instructions on https://leiningen.org/). Database of this application you can find on https://www.kaggle.com/zygmunt/goodbooks-10k#books.csv, it contains more than a thousand books.
 
-To initialize the database with the necessary data you need to set :main to database.init in project.clj file. Then you run cmd and navigate to the project folder and type lein run. After the database is filled with the data message "Initialization done!" will be displayed on the console. To start the web application you will need to change :main to core in project.clj file. You can now find a web app in your browser by typing http://localhost:8080/.
+To initialize the database with the necessary data you need to set :main to **database.init** in project.clj file. Then you run cmd and navigate to the project folder and type lein run. After the database is filled with the data message "Initialization done!" will be displayed on the console. To start the web application you will need to change :main to **core** in project.clj file. You can now find a web app in your browser by typing http://localhost:8080/.
 
 ## References
-Database https://www.kaggle.com/zygmunt/goodbooks-10k#books.csv
 * https://github.com/cgrand/enlive
 * https://github.com/ring-clojure/ring
 * https://github.com/weavejester/compojure
