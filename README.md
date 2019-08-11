@@ -13,6 +13,7 @@ To initialize the database with the necessary data you need to set :main to **da
 * https://github.com/incanter/incanter
 * https://github.com/cemerick/friend
 * https://github.com/clojure/clojure/
+* https://github.com/congomongo/congomongo
 
 ## License
 Copyright © 2019
