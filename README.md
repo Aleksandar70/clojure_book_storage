@@ -10,7 +10,9 @@ To initialize the database with the necessary data you need to set :main to **da
 * https://github.com/cgrand/enlive
 * https://github.com/ring-clojure/ring
 * https://github.com/weavejester/compojure
-* https://github.com/aboekhoff/congomongo
+* https://github.com/incanter/incanter
+* https://github.com/cemerick/friend
+* https://github.com/clojure/clojure/
 
 ## License
 Copyright © 2019
