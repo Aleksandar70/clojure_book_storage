@@ -21,7 +21,7 @@ nav li {
   text-transform: uppercase;
 }
 
-nav li:not(:last-child) {
+nav li:not(:last-child):not(:first-child) {
   border-right: 1px solid #666;
 }
 
@@ -33,6 +33,12 @@ nav a {
 
 nav a:hover {
   border-bottom: 3px solid #8bc34a;
+}
+
+nav .nav-home {
+  float: left;
+  color: #ccc;
+  text-decoration: none;
 }
 
 .fas {

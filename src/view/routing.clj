@@ -17,18 +17,18 @@
 
 (defroutes book-routes
   (GET "/login" [] (html/emit* (templates/show-login)))
-  (GET "/" request
-    (if (= #{::users/user}
-           (:roles (friend/current-authentication)))
-      (resp/redirect "/home")
-      (resp/redirect "/add-user")))
+  (GET "/" request (resp/redirect "/home"))
 
   (GET "/home" request
-    (friend/authorize #{::users/user} (html/emit*
-                                       (templates/show-home
-                                        (:current (friend/identity request))
-                                        (into []
-                                              (take 1000 (sort-by str (books/get-books))))))))
+    (friend/authorize #{::users/admin} (html/emit*
+                                        (templates/show-home))))
+
+  ; (GET "/home" request
+  ;   (friend/authorize #{::users/admin} (html/emit*
+  ;                                      (templates/show-home
+  ;                                       (:current (friend/identity request))
+  ;                                       (into []
+  ;                                             (take 20 (sort-by str (books/get-books))))))))
 
   (GET "/add-book" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-add-book))))
