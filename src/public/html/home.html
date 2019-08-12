@@ -1,19 +1,754 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home Page</title>
-    <link href="../../css/add_book.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-</head>
+    <link href="../../css/home.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div id="nav-bar"></div>
-    Home Page
+    <div id="book-table">
+      <h1>Books</h1>
+      <hr />
+      <table style="border: 1px solid black; width: 90%">
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Publication Year</th>
+          <th>Count</th>
+        </tr>
+        <tr>
+          <td>60897848</td>
+          <td>Vinegar Hill</td>
+          <td>A. Manette Ansay</td>
+          <td>1994.0</td>
+          <td>td33</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Find You in the Dark (Find You in the Dark, #1)</td>
+          <td>A. Meredith Walters</td>
+          <td>2012.0</td>
+          td16
+        </tr>
+        <tr>
+          <td></td>
+          <td>Bad Rep (Bad Rep, #1)</td>
+          <td>A. Meredith Walters</td>
+          <td>2012.0</td>
+          td7
+        </tr>
+        <tr>
+          <td>525444440</td>
+          <td>The House at Pooh Corner (Winnie-the-Pooh, #2)</td>
+          <td>A.A. Milne, Ernest H. Shepard</td>
+          <td>1928.0</td>
+          td146
+        </tr>
+        <tr>
+          <td>525467564</td>
+          <td>Winnie-the-Pooh (Winnie-the-Pooh, #1)</td>
+          <td>A.A. Milne, Ernest H. Shepard</td>
+          <td>1926.0</td>
+          td244
+        </tr>
+        <tr>
+          <td>525467262</td>
+          <td>
+            The Complete Tales and Poems of Winnie-the-Pooh (Winnie-the-Pooh,
+            #1-4)
+          </td>
+          <td>A.A. Milne, Ernest H. Shepard</td>
+          <td>1961.0</td>
+          td45
+        </tr>
+        <tr>
+          <td>525444475</td>
+          <td>The World of Winnie-the-Pooh (Winnie-the-Pooh, #1-2)</td>
+          <td>A.A. Milne, Ernest H. Shepard</td>
+          <td>1926.0</td>
+          td58
+        </tr>
+        <tr>
+          <td>525444467</td>
+          <td>Now We Are Six (Winnie-the-Pooh, #4)</td>
+          <td>A.A. Milne, Ernest H. Shepard</td>
+          <td>1927.0</td>
+          td58
+        </tr>
+        <tr>
+          <td>525444459</td>
+          <td>When We Were Very Young (Winnie-the-Pooh, #3)</td>
+          <td>A.A. Milne, Ernest H. Shepard</td>
+          <td>1924.0</td>
+          td63
+        </tr>
+        <tr>
+          <td>802723462</td>
+          <td>Scarlet (Scarlet, #1)</td>
+          <td>A.C. Gaughen</td>
+          <td>2012.0</td>
+          td11
+        </tr>
+        <tr>
+          <td>1613125348</td>
+          <td>Unhinged (Splintered, #2)</td>
+          <td>A.G. Howard</td>
+          <td>2014.0</td>
+          td21
+        </tr>
+        <tr>
+          <td>1419704281</td>
+          <td>Splintered (Splintered, #1)</td>
+          <td>A.G. Howard</td>
+          <td>2013.0</td>
+          td22
+        </tr>
+        <tr>
+          <td></td>
+          <td>Departure</td>
+          <td>A.G. Riddle</td>
+          <td>2014.0</td>
+          td22
+        </tr>
+        <tr>
+          <td></td>
+          <td>The Atlantis World (The Origin Mystery, #3)</td>
+          <td>A.G. Riddle</td>
+          <td>2014.0</td>
+          td25
+        </tr>
+        <tr>
+          <td></td>
+          <td>The Atlantis Plague (The Origin Mystery, #2)</td>
+          <td>A.G. Riddle</td>
+          <td>2013.0</td>
+          td31
+        </tr>
+        <tr>
+          <td></td>
+          <td>The Atlantis Gene (The Origin Mystery, #1)</td>
+          <td>A.G. Riddle</td>
+          <td>2013.0</td>
+          td41
+        </tr>
+        <tr>
+          <td></td>
+          <td>The Good Neighbor</td>
+          <td>A.J. Banner</td>
+          <td>2015.0</td>
+          td14
+        </tr>
+        <tr>
+          <td>141659907X</td>
+          <td>
+            Drop Dead Healthy: One Man's Humble Quest for Bodily Perfection
+          </td>
+          <td>A.J. Jacobs</td>
+          <td>2012.0</td>
+          td25
+        </tr>
+        <tr>
+          <td>743250621</td>
+          <td>
+            The Know-It-All: One Man's Humble Quest to Become the Smartest
+            Person in the World
+          </td>
+          <td>A.J. Jacobs</td>
+          <td>2004.0</td>
+          td32
+        </tr>
+        <tr>
+          <td>743291476</td>
+          <td>
+            The Year of Living Biblically: One Man's Humble Quest to Follow the
+            Bible as Literally as Possible
+          </td>
+          <td>A.J. Jacobs</td>
+          <td>2007.0</td>
+          td43
+        </tr>
+        <tr>
+          <td>1579731813</td>
+          <td>Sleeping Beauty (Disney Princess, 5)</td>
+          <td>A.L. Singer, Walt Disney Company</td>
+          <td>1974.0</td>
+          td1
+        </tr>
+        <tr>
+          <td>670025488</td>
+          <td>May We Be Forgiven</td>
+          <td>A.M. Homes</td>
+          <td>2012.0</td>
+          td30
+        </tr>
+        <tr>
+          <td>452156610</td>
+          <td>Sleeping Beauty Box Set</td>
+          <td>A.N. Roquelaure, Anne Rice</td>
+          <td>1983.0</td>
+          td11
+        </tr>
+        <tr>
+          <td>452281458</td>
+          <td>Beauty's Release (Sleeping Beauty, #3)</td>
+          <td>A.N. Roquelaure, Anne Rice</td>
+          <td>1985.0</td>
+          td48
+        </tr>
+        <tr>
+          <td>452281431</td>
+          <td>Beauty's Punishment (Sleeping Beauty, #2)</td>
+          <td>A.N. Roquelaure, Anne Rice</td>
+          <td>1984.0</td>
+          td50
+        </tr>
+        <tr>
+          <td>452281423</td>
+          <td>The Claiming of Sleeping Beauty (Sleeping Beauty, #1)</td>
+          <td>A.N. Roquelaure, Anne Rice</td>
+          <td>1983.0</td>
+          td51
+        </tr>
+        <tr>
+          <td>8173711461</td>
+          <td>Wings of Fire: An Autobiography</td>
+          <td>A.P.J. Abdul Kalam, Arun Tiwari</td>
+          <td>1999.0</td>
+          td21
+        </tr>
+        <tr>
+          <td>679735909</td>
+          <td>Possession</td>
+          <td>A.S. Byatt</td>
+          <td>1990.0</td>
+          td114
+        </tr>
+        <tr>
+          <td>307272095</td>
+          <td>The Children's Book</td>
+          <td>A.S. Byatt</td>
+          <td>2009.0</td>
+          td49
+        </tr>
+        <tr>
+          <td>316194689</td>
+          <td>Ask the Passengers</td>
+          <td>A.S. King</td>
+          <td>2012.0</td>
+          td13
+        </tr>
+        <tr>
+          <td>375865861</td>
+          <td>Please Ignore Vera Dietz</td>
+          <td>A.S. King</td>
+          <td>2010.0</td>
+          td26
+        </tr>
+        <tr>
+          <td>143123238</td>
+          <td>The Silent Wife</td>
+          <td>A.S.A. Harrison</td>
+          <td>2013.0</td>
+          td65
+        </tr>
+        <tr>
+          <td>875093663</td>
+          <td>The Pursuit of God</td>
+          <td>A.W. Tozer</td>
+          <td>1948.0</td>
+          td314
+        </tr>
+        <tr>
+          <td>60684127</td>
+          <td>The Knowledge of the Holy</td>
+          <td>A.W. Tozer</td>
+          <td>1961.0</td>
+          td45
+        </tr>
+        <tr>
+          <td></td>
+          <td>Misbehaving (Sea Breeze, #6)</td>
+          <td>Abbi Glines</td>
+          <td>2013.0</td>
+          td11
+        </tr>
+        <tr>
+          <td>1481420763</td>
+          <td>Bad for You (Sea Breeze, #7)</td>
+          <td>Abbi Glines</td>
+          <td>2014.0</td>
+          td11
+        </tr>
+        <tr>
+          <td></td>
+          <td>Sometimes It Lasts (Sea Breeze, #5)</td>
+          <td>Abbi Glines</td>
+          <td>2013.0</td>
+          td13
+        </tr>
+        <tr>
+          <td></td>
+          <td>Existence (Existence Trilogy, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2004.0</td>
+          td14
+        </tr>
+        <tr>
+          <td>1481438867</td>
+          <td>Until Friday Night (The Field Party, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2015.0</td>
+          td16
+        </tr>
+        <tr>
+          <td></td>
+          <td>Just for Now (Sea Breeze, #4)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td19
+        </tr>
+        <tr>
+          <td></td>
+          <td>Take a Chance (Rosemary Beach, #7; Chance, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2014.0</td>
+          td19
+        </tr>
+        <tr>
+          <td>1476776075</td>
+          <td>You Were Mine (Rosemary Beach, #9)</td>
+          <td>Abbi Glines</td>
+          <td>2014.0</td>
+          td21
+        </tr>
+        <tr>
+          <td></td>
+          <td>Simple Perfection (Rosemary Beach, #6; Perfection, #2)</td>
+          <td>Abbi Glines</td>
+          <td>2013.0</td>
+          td22
+        </tr>
+        <tr>
+          <td></td>
+          <td>While It Lasts (Sea Breeze, #3)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td23
+        </tr>
+        <tr>
+          <td></td>
+          <td>One More Chance (Rosemary Beach, #8; Chance, #2)</td>
+          <td>Abbi Glines</td>
+          <td>2014.0</td>
+          td24
+        </tr>
+        <tr>
+          <td></td>
+          <td>Rush Too Far (Rosemary Beach, #4; Too Far, #4)</td>
+          <td>Abbi Glines</td>
+          <td>2014.0</td>
+          td25
+        </tr>
+        <tr>
+          <td></td>
+          <td>Breathe (Sea Breeze, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2011.0</td>
+          td26
+        </tr>
+        <tr>
+          <td></td>
+          <td>Twisted Perfection (Rosemary Beach, #5; Perfection, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2013.0</td>
+          td30
+        </tr>
+        <tr>
+          <td></td>
+          <td>Because of Low (Sea Breeze, #2)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td32
+        </tr>
+        <tr>
+          <td></td>
+          <td>Forever Too Far (Rosemary Beach, #3; Too Far, #3)</td>
+          <td>Abbi Glines</td>
+          <td>2013.0</td>
+          td32
+        </tr>
+        <tr>
+          <td></td>
+          <td>The Vincent Brothers (The Vincent Boys, #2)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td40
+        </tr>
+        <tr>
+          <td></td>
+          <td>The Vincent Boys (The Vincent Boys, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2011.0</td>
+          td42
+        </tr>
+        <tr>
+          <td>1301627445</td>
+          <td>Never Too Far (Rosemary Beach, #2; Too Far, #2)</td>
+          <td>Abbi Glines</td>
+          <td>2013.0</td>
+          td42
+        </tr>
+        <tr>
+          <td></td>
+          <td>Fallen Too Far (Rosemary Beach, #1; Too Far, #1)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td47
+        </tr>
+        <tr>
+          <td></td>
+          <td>Ceaseless (Existence Trilogy, #3)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td6
+        </tr>
+        <tr>
+          <td></td>
+          <td>Predestined (Existence Trilogy, #2)</td>
+          <td>Abbi Glines</td>
+          <td>2012.0</td>
+          td7
+        </tr>
+        <tr>
+          <td>1442486597</td>
+          <td>Dangerous Girls</td>
+          <td>Abigail Haas, Abby McDonald</td>
+          <td>2013.0</td>
+          td18
+        </tr>
+        <tr>
+          <td>375414495</td>
+          <td>Cutting for Stone</td>
+          <td>Abraham Verghese</td>
+          <td>2009.0</td>
+          td74
+        </tr>
+        <tr>
+          <td>525423346</td>
+          <td>A Tale Dark & Grimm (A Tale Dark & Grimm, #1)</td>
+          <td>Adam Gidwitz</td>
+          <td>2010.0</td>
+          td28
+        </tr>
+        <tr>
+          <td>375758232</td>
+          <td>Paris to the Moon</td>
+          <td>Adam Gopnik</td>
+          <td>2000.0</td>
+          td22
+        </tr>
+        <tr>
+          <td>618001905</td>
+          <td>King Leopold's Ghost</td>
+          <td>Adam Hochschild</td>
+          <td>1998.0</td>
+          td38
+        </tr>
+        <tr>
+          <td>812992792</td>
+          <td>The Orphan Master's Son</td>
+          <td>Adam Johnson</td>
+          <td>2012.0</td>
+          td55
+        </tr>
+        <tr>
+          <td>670026557</td>
+          <td>Give and Take: A Revolutionary Approach to Success</td>
+          <td>Adam M. Grant</td>
+          <td>2013.0</td>
+          td26
+        </tr>
+        <tr>
+          <td>425252868</td>
+          <td>
+            A Higher Call: An Incredible True Story of Combat and Chivalry in
+            the War-Torn Skies of World War II
+          </td>
+          <td>Adam Makos, Larry Alexander</td>
+          <td>2012.0</td>
+          td17
+        </tr>
+        <tr>
+          <td>1617750255</td>
+          <td>Go the Fuck to Sleep</td>
+          <td>Adam Mansbach, Ricardo Cortés</td>
+          <td>2011.0</td>
+          td51
+        </tr>
+        <tr>
+          <td>553585975</td>
+          <td>The Wealth of Nations</td>
+          <td>Adam Smith</td>
+          <td>1776.0</td>
+          td513
+        </tr>
+        <tr>
+          <td></td>
+          <td>Someone to Love (Someone to Love, #1)</td>
+          <td>Addison Moore</td>
+          <td>2012.0</td>
+          td13
+        </tr>
+        <tr>
+          <td>380811960</td>
+          <td>How to Talk So Kids Will Listen & Listen So Kids Will Talk</td>
+          <td>Adele Faber, Elaine Mazlish, Kimberly Ann Coe</td>
+          <td>1979.0</td>
+          td61
+        </tr>
+        <tr>
+          <td>440228654</td>
+          <td>Chinese Cinderella: The True Story of an Unwanted Daughter</td>
+          <td>Adeline Yen Mah</td>
+          <td>1999.0</td>
+          td29
+        </tr>
+        <tr>
+          <td>767903579</td>
+          <td>Falling Leaves: The Memoir of an Unwanted Chinese Daughter</td>
+          <td>Adeline Yen Mah</td>
+          <td>1997.0</td>
+          td49
+        </tr>
+        <tr>
+          <td>805097457</td>
+          <td>The Love Affairs of Nathaniel P.</td>
+          <td>Adelle Waldman</td>
+          <td>2013.0</td>
+          td34
+        </tr>
+        <tr>
+          <td>395083621</td>
+          <td>Mein Kampf</td>
+          <td>Adolf Hitler</td>
+          <td>1925.0</td>
+          td573
+        </tr>
+        <tr>
+          <td>1590170571</td>
+          <td>The Invention of Morel</td>
+          <td>
+            Adolfo Bioy Casares, Suzanne Jill Levine, Jorge Luis Borges, Ruth
+            L.C. Simms, Norah Borges de Torre
+          </td>
+          <td>1940.0</td>
+          td86
+        </tr>
+        <tr>
+          <td>517203383</td>
+          <td>The Exploits of Sherlock Holmes</td>
+          <td>Adrian Conan Doyle, John Dickson Carr</td>
+          <td>1954.0</td>
+          td17
+        </tr>
+        <tr>
+          <td>743254430</td>
+          <td>
+            Random Family: Love, Drugs, Trouble, and Coming of Age in the Bronx
+          </td>
+          <td>Adrian Nicole LeBlanc</td>
+          <td>2003.0</td>
+          td13
+        </tr>
+        <tr>
+          <td>345472446</td>
+          <td>Lucia, Lucia</td>
+          <td>Adriana Trigiani</td>
+          <td>2003.0</td>
+          td33
+        </tr>
+        <tr>
+          <td>743430344</td>
+          <td>Big Cherry Holler (Big Stone Gap, #2)</td>
+          <td>Adriana Trigiani</td>
+          <td>2001.0</td>
+          td34
+        </tr>
+        <tr>
+          <td>61257052</td>
+          <td>Very Valentine</td>
+          <td>Adriana Trigiani</td>
+          <td>2009.0</td>
+          td39
+        </tr>
+        <tr>
+          <td>61257095</td>
+          <td>The Shoemaker's Wife</td>
+          <td>Adriana Trigiani</td>
+          <td>2012.0</td>
+          td41
+        </tr>
+        <tr>
+          <td>345459202</td>
+          <td>Big Stone Gap (Big Stone Gap, #1)</td>
+          <td>Adriana Trigiani</td>
+          <td>2000.0</td>
+          td56
+        </tr>
+        <tr>
+          <td>521010756</td>
+          <td>Agamemnon (Oresteia, #1)</td>
+          <td>
+            Aeschylus, Judith Affleck, Philip de May, Patricia E. Easterling,
+            John Harrison
+          </td>
+          <td>-458.0</td>
+          td190
+        </tr>
+        <tr>
+          <td>140443339</td>
+          <td>The Oresteia (Ορέστεια, #1-3)</td>
+          <td>Aeschylus, Robert Fagles, William Bedell Stanford</td>
+          <td>-458.0</td>
+          td255
+        </tr>
+        <tr>
+          <td>192840509</td>
+          <td>Aesop's Fables</td>
+          <td>Aesop, Laura Harris, Laura Gibbs</td>
+          <td>-560.0</td>
+          td942
+        </tr>
+        <tr>
+          <td>2310015</td>
+          <td>At Bertram's Hotel (Miss Marple, #11)</td>
+          <td>Agatha Christie</td>
+          <td>1965.0</td>
+          td1
+        </tr>
+        <tr>
+          <td></td>
+          <td>Poirot Investiga (Hércules Poirot, #3)</td>
+          <td>Agatha Christie</td>
+          <td>1924.0</td>
+          td141
+        </tr>
+        <tr>
+          <td>7120818</td>
+          <td>The Big Four (Hercule Poirot, #5)</td>
+          <td>Agatha Christie</td>
+          <td>1927.0</td>
+          td143
+        </tr>
+        <tr>
+          <td>7151667</td>
+          <td>The Man in the Brown Suit</td>
+          <td>Agatha Christie</td>
+          <td>1924.0</td>
+          td149
+        </tr>
+        <tr>
+          <td>2317850</td>
+          <td>Sleeping Murder (Miss Marple, #13)</td>
+          <td>Agatha Christie</td>
+          <td>1976.0</td>
+          td151
+        </tr>
+        <tr>
+          <td>451199928</td>
+          <td>A Caribbean Mystery (Miss Marple, #10)</td>
+          <td>Agatha Christie</td>
+          <td>1964.0</td>
+          td162
+        </tr>
+        <tr>
+          <td>451199901</td>
+          <td>They Do It with Mirrors (Miss Marple, #6)</td>
+          <td>Agatha Christie</td>
+          <td>1952.0</td>
+          td169
+        </tr>
+        <tr>
+          <td>451199863</td>
+          <td>A Pocket Full of Rye (Miss Marple, #7)</td>
+          <td>Agatha Christie</td>
+          <td>1953.0</td>
+          td169
+        </tr>
+        <tr>
+          <td>425067823</td>
+          <td>Elephants Can Remember (Hercule Poirot, #37)</td>
+          <td>Agatha Christie</td>
+          <td>1972.0</td>
+          td169
+        </tr>
+        <tr>
+          <td>425205967</td>
+          <td>Cat Among the Pigeons (Hercule Poirot, #32)</td>
+          <td>Agatha Christie</td>
+          <td>1959.0</td>
+          td170
+        </tr>
+        <tr>
+          <td>425205959</td>
+          <td>Cards on the Table (Hercule Poirot, #15)</td>
+          <td>Agatha Christie</td>
+          <td>1936.0</td>
+          td171
+        </tr>
+        <tr>
+          <td>7120680</td>
+          <td>Hallowe'en Party (Hercule Poirot, #36)</td>
+          <td>Agatha Christie</td>
+          <td>1969.0</td>
+          td172
+        </tr>
+        <tr>
+          <td>7120710</td>
+          <td>Sad Cypress (Hercule Poirot, #21)</td>
+          <td>Agatha Christie</td>
+          <td>1940.0</td>
+          td174
+        </tr>
+        <tr>
+          <td>031298166X</td>
+          <td>Crooked House</td>
+          <td>Agatha Christie</td>
+          <td>1949.0</td>
+          td175
+        </tr>
+        <tr>
+          <td>425173747</td>
+          <td>Curtain (Hercule Poirot, #39)</td>
+          <td>Agatha Christie</td>
+          <td>1975.0</td>
+          td178
+        </tr>
+        <tr>
+          <td>000711933X</td>
+          <td>Death in the Clouds (Hercule Poirot, #12)</td>
+          <td>Agatha Christie</td>
+          <td>1935.0</td>
+          td179
+        </tr>
+        <tr>
+          <td>451200187</td>
+          <td>Nemesis (Miss Marple, #12)</td>
+          <td>Agatha Christie</td>
+          <td>1971.0</td>
+          td179
+        </tr>
+      </table>
+    </div>
     <script src="../../js/home.js"></script>
-</body>
-
+  </body>
 </html>

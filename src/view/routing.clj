@@ -21,14 +21,10 @@
 
   (GET "/home" request
     (friend/authorize #{::users/admin} (html/emit*
-                                        (templates/show-home))))
-
-  ; (GET "/home" request
-  ;   (friend/authorize #{::users/admin} (html/emit*
-  ;                                      (templates/show-home
-  ;                                       (:current (friend/identity request))
-  ;                                       (into []
-  ;                                             (take 20 (sort-by str (books/get-books))))))))
+                                       (templates/show-home
+                                        (:current (friend/identity request))
+                                        (into []
+                                              (take 100 (sort-by str (books/get-books))))))))
 
   (GET "/add-book" request
     (friend/authorize #{::users/admin} (html/emit* (templates/show-add-book))))
